@@ -213,6 +213,39 @@ body {
   @include font-size(16);
 }
 
+/* Cross browser inline block
+  ========================================================================== */
+
+@mixin inline-block() {
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	*display: inline;
+}
+
+/* Usage */
+
+.icon {
+	@include inline-block();
+}
+
+
+/* Text replacement (instead of text-indent)
+  ========================================================================== */
+
+@mixin text-replacement() {
+	border: 0;
+	color: transparent;
+	font: 0/0 a;
+	text-shadow: none;
+}
+
+/* Usage */
+
+.header h1 {
+	@include text-replacement();
+}
 
 /* Line Height
   ========================================================================== */
@@ -221,6 +254,8 @@ body {
   line-height: $heightValue + px; //fallback for old browsers
   line-height: (0.125 * $heightValue) + rem;
 }
+
+/* Usage */
 
 body {
   @include line-height (16);
