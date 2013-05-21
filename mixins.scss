@@ -217,17 +217,17 @@ body {
   ========================================================================== */
 
 @mixin inline-block() {
-	display: -moz-inline-stack;
-	display: inline-block;
-	vertical-align: top;
-	zoom: 1;
-	*display: inline;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
 }
 
 /* Usage */
 
 .icon {
-	@include inline-block();
+  @include inline-block();
 }
 
 
@@ -235,16 +235,16 @@ body {
   ========================================================================== */
 
 @mixin text-replacement() {
-	border: 0;
-	color: transparent;
-	font: 0/0 a;
-	text-shadow: none;
+  border: 0;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
 }
 
 /* Usage */
 
 .header h1 {
-	@include text-replacement();
+  @include text-replacement();
 }
 
 /* Line Height
@@ -260,3 +260,32 @@ body {
 body {
   @include line-height (16);
 }
+
+/* Placeholder
+  ========================================================================== */
+
+@mixin placeholder-color($color){
+  &.placeholder{
+    color: $color
+  }
+
+  &:-moz-placeholder{
+    color: $color
+  }
+    
+  &::-webkit-input-placeholder{
+    color: $color
+  }
+
+  &:-ms-input-placeholder{
+    color: $color
+  }
+}
+
+/* Usage */
+
+input{
+  @include placeholder-color(#FA4A4A)
+}
+
+
