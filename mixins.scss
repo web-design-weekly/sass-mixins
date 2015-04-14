@@ -288,4 +288,45 @@ input{
   @include placeholder-color(#FA4A4A)
 }
 
+/* Box Shadow
+  ========================================================================== */
 
+@mixin box-shadow($x:0px, $y:0px, $blur:3px, $spread:3px, $color:#000000) {
+  -moz-box-shadow: $x $y $blur $spread $color;
+  -webkit-box-shadow: $x $y $blur $spread $color;
+  box-shadow: $x $y $blur $spread $color;
+}
+@mixin remove-box-shadow() {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Usage */
+
+div {
+  @include box-shadow();
+}
+div {
+  @include box-shadow(3px, 3px, 3px, 5px, #BC2198);
+}
+div {
+  @include remove-box-shadow();
+}
+
+/* Transition
+  ========================================================================== */
+
+@mixin transition($transition-property, $transition-time, $method:ease-in-out, $delay:0) {
+  -webkit-transition: $transition-property $transition-time $method $delay;
+  -moz-transition: $transition-property $transition-time $method $delay;
+  -ms-transition: $transition-property $transition-time $method $delay;
+  -o-transition: $transition-property $transition-time $method $delay;
+  transition: $transition-property $transition-time $method $delay;
+}
+
+/* Usage */
+
+p {
+  @include transition(color, 0.3s);
+}
