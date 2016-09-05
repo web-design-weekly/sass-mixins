@@ -288,4 +288,34 @@ input{
   @include placeholder-color(#FA4A4A)
 }
 
+/* Fonts
+  ========================================================================== */
 
+@mixin declare-font-face($font-family, $font-filename, $font-weight: normal, 
+                         $font-style: normal, $font-stretch : normal) {
+  $full-path: $icon-font-path + $font-filename;
+  @font-face {
+    font-family: $font-family;
+    src: url($full-path + '.eot?#iefix'),
+         url($full-path + '.ttf') format('truetype'),
+         url($full-path + '.eot?') format('embedded-opentype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+  }
+}
+
+/* This case is for special fonts you have download inside your project */
+
+$/styles/fonts/
+
+/* Usage */
+
+@include declare-font-face('Avenir Black', 'Avenir-Black', 900);
+@include declare-font-face('Avenir Book', 'Avenir-Book', 400);
+@include declare-font-face('Avenir Book Oblique', 'Avenir-BookOblique', 400);
+@include declare-font-face('Avenir Heavy', 'Avenir-Heavy', 800);
+@include declare-font-face('Avenir Heavy Oblique', 'Avenir-HeavyOblique', 800);
+@include declare-font-face('Avenir Light', 'Avenir-Light', 300);
+@include declare-font-face('Avenir Medium', 'Avenir-Medium', 500);
+@include declare-font-face('Avenir Roman', 'Avenir-Roman', 400);
