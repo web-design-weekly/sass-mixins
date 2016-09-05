@@ -288,4 +288,20 @@ input{
   @include placeholder-color(#FA4A4A)
 }
 
+/* Sprites
+  ========================================================================== */
 
+/* This mixin requires that the hover state images has the same name
+   as the original plus _hover suffix */
+
+@mixin sprite-background-image($image, $x: 50%, $y: 50%,
+                              $x-hover: $x, $y-hover: $y){
+  background: image_url($image) no-repeat $x $y;
+  &:hover{ background-position: $x-hover $y-hover; }
+}
+
+/* Usage */
+
+.slidebox-left{
+  @include sprite-background('sprite.svg', -148px, -154px, -112px, -154px);
+}
